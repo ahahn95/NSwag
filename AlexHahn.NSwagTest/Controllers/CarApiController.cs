@@ -17,18 +17,10 @@ namespace AlexHahn.NSwagTest.Controllers
         }
 
         [HttpPost]
-        public bool Create(CarRequest car)
+        public IActionResult Create(CarRequest car)
         {
-            try
-            {
-                _carService.AddCar(car);
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex);
-                return false;
-            }
+            _carService.AddCar(car);
+            return Ok();
         }
 
         [HttpGet]
